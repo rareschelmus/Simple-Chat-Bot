@@ -1,0 +1,133 @@
+<aiml version="1.0.1" encoding="UTF-8">
+<!-- basic_chat.aiml -->
+
+    <category>
+        <pattern>HELLO</pattern>
+        <template>
+            Well, hello, what's your name?
+        </template>
+    </category>
+
+    <category>
+        <pattern>WHAT ARE YOU</pattern>
+        <template>
+            I'm a bot, silly!
+        </template>
+    </category>
+
+    <category>
+        <pattern>MY NAME IS *</pattern>
+        <template>
+            <think>
+                <set name="name">
+                    <star/>
+                </set>
+            </think>
+            what do you study?
+        </template>
+    </category>
+
+    <category>
+        <pattern>COMPUTER SCIENCE</pattern>
+        <that>WHAT DO YOU STUDY</that>
+        <template>
+            <think>
+                <set name="topic">computer</set>
+            </think>
+            Mmmm, smashing, I love that subject ;)
+        </template>
+    </category>
+
+    <topic name="COMPUTER">
+        <category>
+            <pattern>SERIOUSLY</pattern>
+            <template>
+                <random>
+                    <li>Totally, it's a top notch area :D</li>
+                    <li>Oy, for sure</li>
+                </random>
+            </template>
+        </category>
+
+        <category>
+            <pattern>*</pattern>
+            <template>I find it very interesting</template>
+        </category>
+
+        <category>
+            <pattern>WHAT PROGRAMMING LANGUAGE DO YOU PREFER</pattern>
+            <template>
+                <random>
+                    <li>C++, <get name="name"/></li>
+                    <li>LISP, <get name="name"/>, I like LISP.</li>
+                    <li>Python all the way, <get name="name"/>!</li>
+                </random>
+            </template>
+        </category>
+
+        <category>
+            <pattern>* WRITTEN * PYTHON *</pattern>
+            <that>PYTHON ALL THE WAY</that>
+            <template>Yes, that's why I love it</template>
+        </category>
+    </topic>
+
+    <category>
+        <pattern>MEDICINE</pattern>
+        <that>WHAT DO YOU STUDY</that>
+        <template><set name="topic">medicine</set>, that's a hard one,<get name="name"/>.</template>
+    </category>
+
+    <topic name = "MEDICINE">
+        <category>
+            <pattern>Do you know that *</pattern>
+            <template>No, very interesting, <get name="name"/>.</template>
+        </category>
+        <category>
+            <pattern>I WANT TO BE A DOCTOR</pattern>
+            <template>I have no doubt of it <get name="name"/></template>
+        </category>
+    </topic>
+
+    <category>
+        <pattern>DO YOU HAVE A NAME</pattern>
+        <template>
+            <random>
+                <li>Yes, </li>
+                <li>My name is </li>
+                <li>Yes, my name is </li>
+            </random>
+            <bot name="name"></bot>
+        </template>
+    </category>
+
+    <category>
+        <pattern>LET ME TELL YOU A STORY</pattern>
+        <template>Tell me</template>
+    </category>
+
+    <category>
+        <pattern>*</pattern>
+        <that>TELL ME</that>
+        <template>
+            <random>
+                <li>Hmmm, very interesting</li>
+                <li>Cool story, <get name="name"/></li>
+                <li>Smashing!</li>
+            </random>
+        </template>
+    </category>
+
+    <category>
+        <pattern>*</pattern>
+        <template>
+            <random>
+                <li>Sorry, I don't understand...</li>
+                <li>Can you repeat?</li>
+
+            </random>
+        </template>
+    </category>
+
+</aiml>
+
